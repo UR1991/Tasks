@@ -80,12 +80,12 @@ class TasksController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($id)
+    public function actionUpdate($id=null)
     {
-        $model = $this->findModel($id);
+        $model = Tasks::findOne($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -99,9 +99,9 @@ class TasksController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id)
+    public function actionDelete($id=null)
     {
-        $this->findModel($id)->delete();
+        $model = Tasks::findOne($id)->delete();
 
         return $this->redirect(['index']);
     }
