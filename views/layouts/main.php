@@ -36,10 +36,8 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'create', 'url' => ['/tasks/create']],
             ['label' => 'view', 'url' => ['/tasks/index']],
-            ['label' => 'update', 'url' => ['/tasks/update']],
-            ['label' => 'delete', 'url' => ['/tasks/delete']],
+
 
         ],
     ]);
